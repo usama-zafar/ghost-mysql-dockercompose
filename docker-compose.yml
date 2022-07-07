@@ -1,0 +1,22 @@
+version: '3'
+services:
+    ghost:
+        image: ghost
+        container_name: my_app
+        restart: always
+        ports:
+        - "8080:2368"
+        environment:
+            database__connection__host: db
+            database__connection__user: root
+            database__connection__password: password123
+            database__connection__database: ghost
+        
+            
+            
+    database:
+        image: mysql:5.7
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: password123
+            
